@@ -1,3 +1,4 @@
+import { Dir } from '@/lib/games/snake';
 import {
   Arena,
   ArenaResult,
@@ -7,12 +8,7 @@ import {
   pairOf,
   stepArena,
 } from '@/lib/games/snake-duel';
-import {
-  DuelMove,
-  DuelView,
-  RECONNECT_MS,
-  RoundPhase,
-} from '@/lib/snake-duel/protocol';
+import { DuelView, RECONNECT_MS, RoundPhase } from '@/lib/snake-duel/protocol';
 
 export const PRESENCE_TIMEOUT_MS = 6000;
 export const ROUND_MAX_WALL_MS = 120_000;
@@ -31,8 +27,11 @@ export interface Presence {
   expiredRound?: string;
 }
 
-export interface DuelInput extends DuelMove {
+export interface DuelInput {
   player: string;
+  roundId: string;
+  seq: number;
+  dir: Dir;
 }
 
 export interface Round {

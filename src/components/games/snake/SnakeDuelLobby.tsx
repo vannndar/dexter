@@ -135,7 +135,7 @@ export default function SnakeDuelLobby({
             action,
             name: displayName,
             token: admission.current.token,
-            isPublic,
+            public: isPublic,
             code,
           },
         },
